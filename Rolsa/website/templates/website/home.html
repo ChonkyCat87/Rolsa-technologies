@@ -1,10 +1,13 @@
-{% extends "website/base.html" %}
-
-{%  include "website/base.html"  %}
-
+{%  extends "website/base.html"  %}
+{%  load static  %}
 {% block title %}Rolsa Technologies{% endblock %}
 
 {% block content %}
-<!-- enter page info and other details -->
 
+
+<!-- enter page info and other details -->
+<h1 class="text-center text-bold text-light">Start your journey to help save the planet here!</h1> 
+<div class="text-center width-100% " id="tree_image" style="background-image: url('{%  static 'images/environment_tree.png'  %}');">
+    hello 
+</div>
 {% endblock %}

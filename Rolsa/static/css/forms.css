@@ -1,0 +1,51 @@
+.form-layout{
+    border-radius: 5px;
+    width: 500px;
+}
+
+/* Wrapper to center content vertically */
+.form-wrapper {
+    min-height: 92vh;
+}
+.form-text{
+    color:#e0ffe6 !important;
+}
+/* ----- Card Container ----- */
+.eco-card {
+    width: 35em;
+    background-color: #122b16; /* card green */
+    border: 1px solid #1e4726;
+    border-radius: 2em;
+    box-shadow: 0 0 5em rgba(0, 0, 0, 0.4);
+    color: #e0ffe6 !important;
+}
+
+/* ----- Headings & Accent Text ----- */
+.eco-card h3 {
+    color: #a4ffb5;
+}
+
+.intro-text {
+    color: #b7f2c2;
+}
+
+/* ----- Links ----- */
+a {
+    color: #70ff85;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #b0ffc1;
+}
+
+/* ----- Submit Button ----- */
+.eco-btn {
+    background-color: #28a745;
+    border: none;
+    border-radius: 1.5em;
+}
+
+.eco-btn:hover {
+    background-color: #218838;
+}

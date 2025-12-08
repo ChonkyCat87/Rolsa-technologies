@@ -3,7 +3,7 @@
 /* remopves default margin */
 body{
     margin: 0;
-    background-color: #383838;
+    background-color: #383838  !important;
 }
 
 nav .brand{
@@ -15,7 +15,7 @@ nav .brand{
 nav {
     padding-top: 1em;
     padding-bottom: 1em;
-    gap: 100px;
+    gap: 8em;
     width: 100%;
     background-color: #1a8c1a;  /* green background */
     display: flex;
@@ -29,7 +29,7 @@ nav .nav-links {
     justify-content: center;
     text-align: center;
     display: flex;
-    gap: 25px;
+    gap: 3em;
     flex-grow: 1;  /* takes available space between brand and auth links */
 }
 
@@ -37,7 +37,7 @@ nav .nav-links {
 nav .auth-links {
     padding-right: 1em;
     display: flex;
-    gap: 15px;
+    gap: 1.5em;
 }
 
 /* All links styles */
@@ -53,3 +53,13 @@ nav a:hover {
     text-decoration: underline;
 }
 
+
+.body-forms {
+    background-color: #0b2e13; /* deep eco green */
+}
+
+
+.alert {
+    background-color: rgb(23, 78, 9);
+    color: white;
+}
