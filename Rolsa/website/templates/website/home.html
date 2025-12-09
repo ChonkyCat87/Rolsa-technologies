@@ -7,7 +7,33 @@
 
 <!-- enter page info and other details -->
 <h1 class="text-center text-bold text-light">Start your journey to help save the planet here!</h1> 
-<div class="text-center width-100% " id="tree_image" style="background-image: url('{%  static 'images/environment_tree.png'  %}');">
-    hello 
+<div class="text-center width-100% p-5" id="tree-image">
+    <div class="row justify-content-around">
+        <div class="col-4">
+            <div class="card p-5 my-5 mx-auto rounded-5 font-weight-bold" style="width: 16rem;">
+                <a href="#">
+                    <img src="{%  static 'images/carbon_icon.png'  %}" alt="">
+                </a>
+                Carbon Footprint
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card p-5 my-5 mx-auto rounded-5" style="width: 16rem;">
+                <a href="#">
+                    <img src="{%  static 'images/energy_icon.png'  %}" alt="">
+                </a>
+                
+                Energy
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card p-5 my-5 mx-auto rounded-5" style="width: 16rem;">
+                <a href="#">
+                    <img src="{%  static 'images/hammer_icon.png'  %}" alt="">
+                </a>
+                installation
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}
