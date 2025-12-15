@@ -1,0 +1,32 @@
+{%  extends "website/base.html"  %}
+{%  load static  %}
+{% block title %}Rolsa Technologies{% endblock %}
+
+{% block content %}
+
+<h1 class="text-center text-bold text-light">
+    Carbon Footprint
+</h1>
+<br>
+
+<div class="box">
+    <div class="row align-items-center">
+        <!-- Text Column - takes half the width -->
+        <div class="col-lg-6">
+            <div class="text">
+                Carbon emissions are gases (mainly carbon dioxide (CO₂) and methane) released into the atmosphere from burning fossil fuels, industrial processes, and agriculture. 
+                These gases trap heat and drive climate change that heats up the atmosphere. 
+                This makes water levels rise and forces animals to live in harsher conditions.
+            </div>
+        </div>
+
+        <!-- Image Column - takes the other half -->
+        <div class="col-lg-6 text-center">
+            <div class="polar_bear">
+                <img src="{% static 'images/polar_bear.png' %}"class="img-fluid rounded">
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

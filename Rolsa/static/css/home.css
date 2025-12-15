@@ -1,12 +1,22 @@
-#tree-image{
+#tree-image {
     background-image: url("../images/environment_tree.png");
-    background-size: 100% 100%;
+    background-size: 100% 100%;        
     background-repeat: no-repeat;
+    background-position: center;
+    
+    /* Extends from below navbar to just above footer */
+    min-height: calc(100vh - 10em); /* adjust 10em if your navbar + footer total height differs */
+    padding: 20rem 2rem 8rem; /* top padding for heading, bottom extra space for footer */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
 }
 
-.card{
+.card {
     background-color: #ffffff77;
-    font-weight:500;
-    font-size:1.7em;
-    vertical-align: middle;
+    font-weight: 500;
+    font-size: 1.7em;
+    vertical-align: center;
+    text-align: center;
 }

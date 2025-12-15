@@ -1,0 +1,35 @@
+.box {
+    background-color: #9ABA94;
+    border-radius: 2em;
+    padding: 3em;
+    margin: 2rem auto;           /* centers the box and adds top/bottom spacing */
+    max-width: 1200px;           /* optional: limits width on large screens */
+}
+
+.text {
+    font-size: 1.5em;
+    line-height: 1.7;
+    color: #333;
+    text-align: justify;         /* better readability than center for long text */
+    padding-right: 2em;          /* space between text and image */
+}
+
+.polar_bear img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 1.5em;        /* rounded corners like in the screenshot */
+
+}
+
+/* Optional: On small screens, stack text above image */
+@media (max-width: 992px) {
+    .text {
+        text-align: center;
+        padding-right: 0;
+        margin-bottom: 2em;
+    }
+    
+    .polar_bear {
+        margin-top: 1em;
+    }
+}

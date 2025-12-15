@@ -1,6 +1,4 @@
-/* lines 3 to 53 are for the navbar */
-
-/* remopves default margin */
+/* removes default margin */
 body{
     margin: 0;
     background-color: #383838  !important;
@@ -9,28 +7,26 @@ body{
 nav .brand{
     font-weight: bold;
     padding-left: 1em;
+    white-space: nowrap;  /* prevents text wrap */
 }
 
 /* Navbar container */
 nav {
     padding-top: 1em;
     padding-bottom: 1em;
-    gap: 8em;
     width: 100%;
     background-color: #1a8c1a;  /* green background */
     display: flex;
     align-items: center;
     color: white;
-
 }
 
-/* Main navigation links */
+/* Main navigation links - centered */
 nav .nav-links {
-    justify-content: center;
-    text-align: center;
     display: flex;
     gap: 3em;
-    flex-grow: 1;  /* takes available space between brand and auth links */
+    flex-grow: 1;              /* takes all available space */
+    justify-content: center;   /* centers the links horizontally */
 }
 
 /* Authentication links on the right */
@@ -38,6 +34,7 @@ nav .auth-links {
     padding-right: 1em;
     display: flex;
     gap: 1.5em;
+    white-space: nowrap;
 }
 
 /* All links styles */
@@ -74,4 +71,3 @@ footer{
 
     color: white;
 }
-

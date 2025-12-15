@@ -43,4 +43,5 @@ def user_logout(request):
     messages.info(request, "You have been logged out!")
     return redirect('')
 
-
+def carbon_footprint(request):
+    return render(request, 'website/carbon_footprint.html')

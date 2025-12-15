@@ -5,14 +5,24 @@
 {% block content %}
 
 
-<!-- enter page info and other details -->
-<h1 class="text-center text-bold text-light">Start your journey to help save the planet here!</h1> 
-<div class="text-center width-100% p-5" id="tree-image">
-    <div class="row justify-content-around">
+<h1 class="text-center text-bold text-light">
+    Start your journey to help save the planet here!
+</h1>
+<div id="tree-image">
+    <div class="row justify-content-around w-100">
         <div class="col-4">
-            <div class="card p-5 my-5 mx-auto rounded-5 font-weight-bold" style="width: 16rem;">
+            <div class="card p-5 my-5 mx-auto rounded-5" style="width: 16rem;">
                 <a href="#">
-                    <img src="{%  static 'images/carbon_icon.png'  %}" alt="">
+                    <img src="{% static 'images/energy_icon.png' %}" alt="Energy">
+                </a>
+                Energy
+            </div>
+        </div>
+        <div class="col-4">
+            
+            <div class="card p-5 my-5 mx-auto rounded-5" style="width: 16rem;">
+                <a href="{% url 'carbon_footprint' %}">
+                    <img src="{% static 'images/carbon_icon.png' %}" alt="Carbon Footprint">
                 </a>
                 Carbon Footprint
             </div>
@@ -20,20 +30,12 @@
         <div class="col-4">
             <div class="card p-5 my-5 mx-auto rounded-5" style="width: 16rem;">
                 <a href="#">
-                    <img src="{%  static 'images/energy_icon.png'  %}" alt="">
+                    <img src="{% static 'images/hammer_icon.png' %}" alt="Installation">
                 </a>
-                
-                Energy
-            </div>
-        </div>
-        <div class="col-4">
-            <div class="card p-5 my-5 mx-auto rounded-5" style="width: 16rem;">
-                <a href="#">
-                    <img src="{%  static 'images/hammer_icon.png'  %}" alt="">
-                </a>
-                installation
+                Installation
             </div>
         </div>
     </div>
 </div>
+
 {% endblock %}
