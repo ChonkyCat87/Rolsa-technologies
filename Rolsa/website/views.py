@@ -45,3 +45,6 @@ def user_logout(request):
 
 def carbon_footprint(request):
     return render(request, 'website/carbon_footprint.html')
+
+def energy(request):
+    return render(request, 'website/energy.html')

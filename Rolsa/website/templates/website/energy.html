@@ -1,0 +1,74 @@
+{%  extends "website/base.html"  %}
+{%  load static  %}
+{% block title %}Rolsa Technologies{% endblock %}
+
+{% block content %}
+
+<br>
+<h1 class="text-center text-bold text-light">Our different energy plans</h1>
+<br>
+
+<div class="energy_card">
+    <div class="row p-5 m-3 ">
+    <!-- Solar Panels -->
+     <div class="col">
+        <div class="card">
+            <img class ="h-auto card-img-top" src="{%  static 'images/solar_panels.png'  %}" alt="">
+            <div class="card-body d-flex flex-column">
+                <h2 class="text-bold">Solar Panels</h2>
+                <p>
+                    Our solar panels are of the highest quality and are some of
+                    the most efficient in the market and for the small price of
+                    £8,000 per home. And with our premium solar panel package
+                    for £9,000, you can save up to £500 per house if you need
+                    more than one house fitting.
+                </p>
+                <button class="buy-btn  mt-auto">Buy Now</button>   
+            </div>
+        </div>
+    </div>
+
+    <!-- Charging Stations -->
+        <div class="col">
+            <div class="card rounded-5">
+                <img class ="h-auto card-img-top" src="{%  static 'images/charging_station.png'  %}" alt="">
+                <div class="card-body d-flex flex-column">
+                <h2 class="text-bold">Charging stations</h2>
+                <p>
+                    Our electronic vehicle charging stations are some of the
+                    fastest charging stations in the country and the energy used
+                    is sourced by completely green sources. We offer both free
+                    standing and wall mounted charging stations for a small cost
+                    of £800 per station with a 10% discount if you order over
+                    5 stations, and we will do any wiring needed free of charge.
+                </p>
+                <br>               
+                <button class="buy-btn mt-auto  ">Buy Now</button>
+                </div>
+            </div>
+        </div>
+
+    <!-- Smart Home -->
+        <div class="col">
+            <div class="card">
+                <img class ="h-auto card-img-top" src="{%  static 'images/home_energy.png'  %}" alt="">
+                <div class="card-body d-flex flex-column">
+                    <h2 class="text-bold">Smart Home Energy Systems</h2>
+                    <p>
+                        Our Smart Home Energy Management System (SHEMS) is one of
+                        the best in the industry and has been able to save a
+                        homeowner over 70% of their electricity bill. Our advanced
+                        systems are available at the low cost of £2500 per home.
+                    </p>
+                    <br>
+                    <button class="buy-btn mt-auto  ">Buy Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+
+
+{% endblock %}

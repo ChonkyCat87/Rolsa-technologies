@@ -1,0 +1,30 @@
+.card{
+    background-color: #c7d9c2;
+    size: auto;
+    padding: 2em;
+    margin: 1em;
+    border-radius: 3em;
+    font-size: 1.7em;
+
+}
+.col{
+
+    border-radius: 3em;
+    flex: 1 1 300px;
+    padding-bottom: 1em;
+}
+
+.row{
+    background-color: #9fbd95;
+    display:flex;
+    flex-wrap: wrap;
+    gap: 3em;
+    --bs-gutter-x: 0 !important;
+    vertical-align: center;
+    text-align: center;
+}
+
+.buy-btn:hover{
+    background-color: #4d4e4d;
+    color: #fff;
+}

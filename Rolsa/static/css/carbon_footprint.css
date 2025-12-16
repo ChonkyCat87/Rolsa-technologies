@@ -6,7 +6,7 @@
     max-width: 1200px;           /* optional: limits width on large screens */
 }
 
-.text {
+.text_boxes {
     font-size: 1.5em;
     line-height: 1.7;
     color: #333;
@@ -14,22 +14,53 @@
     padding-right: 2em;          /* space between text and image */
 }
 
-.polar_bear img {
+.carbon_images img {
     max-width: 100%;
     height: auto;
     border-radius: 1.5em;        /* rounded corners like in the screenshot */
 
 }
 
-/* Optional: On small screens, stack text above image */
-@media (max-width: 992px) {
-    .text {
-        text-align: center;
-        padding-right: 0;
-        margin-bottom: 2em;
-    }
-    
-    .polar_bear {
-        margin-top: 1em;
-    }
+
+
+
+.calculator-tab {
+    font-size: 1.4em;
+    text-align: center;
+    padding: 1.5em;
+    border-radius: 1.5em !important;
+    margin-bottom: 1em;
+    background-color: #a5d6a7 !important;
+    border: none !important;
+    transition: all 0.3s ease;
+    color: #333;
+}
+
+.calculator-tab:hover {
+    background-color: #94c695 !important;
+}
+
+.calculator-tab.active {
+    background-color: #81c784 !important;
+    color: white !important;
+    font-weight: bold;
+}
+
+.calculator-panel {
+    display: none;
+}
+
+.calculator-panel.active {
+    display: block;
+    animation: fadeIn 0.4s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.thick-hr {
+    height: 10px;
+    background-color: #393939;
 }

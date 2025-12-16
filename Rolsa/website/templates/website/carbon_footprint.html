@@ -3,17 +3,17 @@
 {% block title %}Rolsa Technologies{% endblock %}
 
 {% block content %}
-
+<br>
 <h1 class="text-center text-bold text-light">
     Carbon Footprint
 </h1>
-<br>
+
 
 <div class="box">
     <div class="row align-items-center">
         <!-- Text Column - takes half the width -->
         <div class="col-lg-6">
-            <div class="text">
+            <div class="text_boxes">
                 Carbon emissions are gases (mainly carbon dioxide (CO₂) and methane) released into the atmosphere from burning fossil fuels, industrial processes, and agriculture. 
                 These gases trap heat and drive climate change that heats up the atmosphere. 
                 This makes water levels rise and forces animals to live in harsher conditions.
@@ -22,11 +22,182 @@
 
         <!-- Image Column - takes the other half -->
         <div class="col-lg-6 text-center">
-            <div class="polar_bear">
+            <div class="carbon_images">
                 <img src="{% static 'images/polar_bear.png' %}"class="img-fluid rounded">
             </div>
         </div>
     </div>
-</div>
+    <br>
+    <br>
+    <br>
+    <div class="row align-items-center">
+        <!-- text column with same as last-->
+        <div class="col-lg-6">
+            <div class="text_boxes">
+                To reduce carbon emissions, we can shift toward renewable energy sources like wind and solar, improve energy efficiency in homes and transportation, reduce waste, and support sustainable practices such as public transit, electric vehicles, and responsible consumption. Small individual actions combined with large-scale policy and industry changes make the biggest impact.
+            </div>
+        </div>
+        <!-- image column same as last -->
+        <div class="col-lg-6 text-center">
+            <div class="carbon_images">
+                <img src="{% static 'images/power_plant.png' %}"class="img-fluid rounded">
+            </div>
+        </div>
+    </div>
+    <br>
+    <hr class="thick-hr opacity-100">
+    <br>
+    <h3 class="text-center">Carbon Footprint Calculator</h3>
+    <!-- carbon footprint calculator -->
+    <div class="row mt-5">
+        <div class="col-md-3">
+            <div class="list-group" id="calculator-tabs">
+                <button type="button" class="list-group-item list-group-item-action calculator-tab active" data-tab="vehicle">
+                    Vehicle
+                </button>
+                <button type="button" class="list-group-item list-group-item-action calculator-tab" data-tab="building">
+                    Building
+                </button>
+                <button type="button" class="list-group-item list-group-item-action calculator-tab" data-tab="total">
+                    Total
+                </button>
+            </div>
+        </div>
 
+        <div class="col-md-9">
+            <div class="calculator-content p-4 rounded" style="min-height: 400px; background-color: #c8e6c9; border-radius: 1.5em;">
+
+                <!-- Vehicle -->
+                <div id="vehicle" class="calculator-panel active">
+                    <h4 class="text-center fw-bold text-success mb-4">Vehicle</h4>
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Fuel/energy consumption</label>
+                        <input type="number" class="form-control" id="v-cons" placeholder="e.g. 500 liters" min="0">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Emission factor (kg CO₂ per unit)</label>
+                        <input type="number" step="0.01" class="form-control" id="v-fac" placeholder="e.g. 2.31" min="0">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-bold text-success">Result</label>
+                        <input type="text" class="form-control fw-bold text-success bg-white" id="v-out" readonly value="0.00 kg CO₂">
+                    </div>
+                    <div class="text-center mt-4">
+                        <button type="button" class="btn btn-danger btn-lg clear-btn" data-section="v">
+                            Remove Data
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Building -->
+                <div id="building" class="calculator-panel">
+                    <h4 class="text-center fw-bold text-success mb-4">Building</h4>
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Fuel/energy consumption</label>
+                        <input type="number" class="form-control" id="b-cons" placeholder="e.g. 12000 kWh" min="0">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Emission factor (kg CO₂ per unit)</label>
+                        <input type="number" step="0.01" class="form-control" id="b-fac" placeholder="e.g. 0.45" min="0">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-bold text-success">Result</label>
+                        <input type="text" class="form-control fw-bold text-success bg-white" id="b-out" readonly value="0.00 kg CO₂">
+                    </div>
+                    <div class="text-center mt-4">
+                        <button type="button" class="btn btn-danger btn-lg clear-btn" data-section="b">
+                            Remove Data
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Total -->
+                <div id="total" class="calculator-panel">
+                    <div class="text-center py-5">
+                        <h3 class="fw-bold text-success mb-4">Total Carbon Footprint</h3>
+                        <h1 class="display-4 fw-bold text-dark" id="total-out">0.00</h1>
+                        <p class="lead text-muted fw-bold">kg CO₂</p>
+                        <div class="mt-5">
+                            <button type="button" class="btn btn-danger btn-lg clear-btn" data-section="all">
+                                Remove All Data
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+        // Tab switching – only changes view, does NOT clear data
+        document.querySelectorAll('.calculator-tab').forEach(btn => {
+            btn.onclick = function() {
+                document.querySelectorAll('.calculator-tab').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+
+                document.querySelectorAll('.calculator-panel').forEach(p => p.classList.remove('active'));
+                document.getElementById(this.getAttribute('data-tab')).classList.add('active');
+
+                updateTotal(); // Refresh total display when switching
+            };
+        });
+
+        // Live calculation
+        function calc(section) {
+            let cons = parseFloat(document.getElementById(section + '-cons').value) || 0;
+            let fac  = parseFloat(document.getElementById(section + '-fac').value)  || 0;
+            let result = (cons * fac).toFixed(2);
+            document.getElementById(section + '-out').value = result + ' kg CO₂';
+            updateTotal();
+        }
+
+        document.getElementById('v-cons').oninput = () => calc('v');
+        document.getElementById('v-fac').oninput  = () => calc('v');
+        document.getElementById('b-cons').oninput = () => calc('b');
+        document.getElementById('b-fac').oninput  = () => calc('b');
+
+        // Update total
+        function updateTotal() {
+            let v = parseFloat(document.getElementById('v-out').value) || 0;
+            let b = parseFloat(document.getElementById('b-out').value) || 0;
+            document.getElementById('total-out').textContent = (v + b).toFixed(2);
+        }
+
+        // "Remove Information" buttons
+        document.querySelectorAll('.clear-btn').forEach(btn => {
+            btn.onclick = function() {
+                let section = this.getAttribute('data-section');
+
+                if (section === 'v') {
+                    document.getElementById('v-cons').value = '';
+                    document.getElementById('v-fac').value = '';
+                    document.getElementById('v-out').value = '0.00 kg CO₂';
+                } else if (section === 'b') {
+                    document.getElementById('b-cons').value = '';
+                    document.getElementById('b-fac').value = '';
+                    document.getElementById('b-out').value = '0.00 kg CO₂';
+                } else if (section === 'all') {
+                    // Clear both sections
+                    document.getElementById('v-cons').value = '';
+                    document.getElementById('v-fac').value = '';
+                    document.getElementById('v-out').value = '0.00 kg CO₂';
+                    document.getElementById('b-cons').value = '';
+                    document.getElementById('b-fac').value = '';
+                    document.getElementById('b-out').value = '0.00 kg CO₂';
+                }
+
+                updateTotal();
+            };
+        });
+
+        // Initial total
+        updateTotal();
+    });
+    </script>
+</div>
+<br>
+<br>
+<br>
 {% endblock %}

@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="{%  static 'css/home.css'  %}">
     <link rel="stylesheet" href="{%  static 'css/forms.css'  %}">
     <link rel="stylesheet" href="{%  static 'css/carbon_footprint.css'  %}">
+    <link rel="stylesheet" href="{%  static 'css/energy.css'  %}">
 
 </head>
 <body>
@@ -21,7 +22,7 @@
         </div>
 
         <div class="nav-links">
-            <a href="#">Energy</a>
+            <a href="{% url 'energy' %}">Energy</a>
             <a href="{% url 'carbon_footprint' %}">Carbon Footprint</a>
             <a href="#">Scheduling</a>
             <a href="#">Account</a>
