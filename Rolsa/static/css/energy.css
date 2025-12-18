@@ -15,10 +15,10 @@
 }
 
 .row{
+    padding: 2em;
     background-color: #9fbd95;
     display:flex;
     flex-wrap: wrap;
-    gap: 3em;
     --bs-gutter-x: 0 !important;
     vertical-align: center;
     text-align: center;
